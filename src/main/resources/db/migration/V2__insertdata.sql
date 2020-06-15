@@ -1,0 +1,2 @@
+INSERT INTO customer(firstName, lastName, email, hasClicked) VALUES('XYZ', 'ABC', 'xyz@gmail.com',false);
+INSERT INTO customer(firstName, lastName, email, hasClicked) VALUES('Flyway', 'Test', 'zbc@gmail.com',false);
