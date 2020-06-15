@@ -1,7 +1,7 @@
 package com.devesh.mailsender.api.service;
 
 import com.devesh.mailsender.api.data.CustomerRepository;
-import com.devesh.mailsender.api.exception.CustomException;
+import com.devesh.mailsender.api.exception.NotFoundException;
 import com.devesh.mailsender.api.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -14,10 +14,10 @@ public class UpdateClickStatus implements MailService{
     @Autowired
     CustomerRepository customerRepository;
     @Override
-    public void updateClickStatus(UUID uuid) throws CustomException {
+    public void updateClickStatus(UUID uuid) throws NotFoundException {
         Customer customer = customerRepository.findById(uuid).orElse(null);
         if(customer==null)
-            throw new CustomException("Customer with uuid: "+uuid+" not found");
+            throw new NotFoundException("Customer with uuid: "+uuid+" not found");
         else
         {
             customer.setHasClicked(true);

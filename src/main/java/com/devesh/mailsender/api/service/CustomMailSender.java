@@ -1,6 +1,6 @@
 package com.devesh.mailsender.api.service;
 
-import com.devesh.mailsender.api.exception.CustomException;
+import com.devesh.mailsender.api.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,7 +15,7 @@ public class CustomMailSender implements MailService {
     private JavaMailSender mailSender;
 
     @Override
-    public void updateClickStatus(UUID uuid) throws CustomException {
+    public void updateClickStatus(UUID uuid) throws NotFoundException {
 
     }
 
