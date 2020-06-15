@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -20,10 +22,13 @@ public class Customer implements Serializable {
     @GenericGenerator(name = "system-uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
     @Column(name = "firstname")
+    @NotNull(message = "First Name cannot be empty/null")
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
     @Column(unique = true)
+    @NotNull(message = "Email cannot be empty/null")
+    @Email(message = "Email should be valid")
     private String email;
     @Column(name = "hasclicked")
     private boolean hasClicked;
